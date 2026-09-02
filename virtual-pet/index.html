@@ -30,11 +30,39 @@
                     <div id="energy-bar"></div>
                 </div>
             </div>
+            <div class="stat">
+                <div class="stat-header">
+                    <span>🍖 Hunger</span>
+                    <span id="hunger">50%</span>
+                </div>
+                <div class="bar">
+                    <div id="hunger-bar"></div>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="stat-header">
+                    <span>💧 Thirst</span>
+                    <span id="thirst">50%</span>
+                </div>
+                <div class="bar">
+                    <div id="thirst-bar"></div>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="stat-header">
+                    <span>❤️ Health</span>
+                    <span id="health">100%</span>
+                </div>
+                <div class="bar">
+                    <div id="health-bar"></div>
+                </div>
+            </div>
         </div>
         <div class="buttons">
             <button id="feed-btn" onclick="feedPet()">🍔 Feed</button>
             <button id="play-btn" onclick="playWithPet()">🎮 Play</button>
             <button id="sleep-btn" onclick="sleepPet()">😴 Sleep</button>
+            <button id="water-btn" onclick="giveWater()">💧 Water</button>
             <button id="reset-btn" onclick="resetPet()">🔄 Reset</button>
         </div>
         <p id="message">Buddy is waiting for you!</p>

@@ -11,12 +11,17 @@
         <div class="emoji" id="emoji">😊</div>
         <h1 id="title">How are you feeling today?</h1>
         <p id="message">Choose your mood below!</p>
+        <div class="stats">
+            <p class="stat-label">📊 Today's Mood Streak: <span id="streak">0</span> days</p>
+            <p class="stat-label">🕐 Last mood: <span id="last-mood">None</span></p>
+        </div>
         <div class="buttons">
             <button data-mood="happy" class="mood-btn active">😊 Happy</button>
             <button data-mood="sad" class="mood-btn">😢 Sad</button>
             <button data-mood="tired" class="mood-btn">😴 Tired</button>
             <button data-mood="angry" class="mood-btn">😡 Angry</button>
         </div>
+        <button id="reset-btn" class="reset-btn">🔄 Reset Streak</button>
     </div>
     <footer class="watermark">
         <p>Made by <a href="https://makostech.me" target="_blank" rel="noopener">Makos Tech</a></p>
