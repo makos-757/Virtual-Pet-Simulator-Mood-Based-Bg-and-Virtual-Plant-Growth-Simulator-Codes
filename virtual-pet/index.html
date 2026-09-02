@@ -9,24 +9,33 @@
 <body>
     <div class="container">
         <h1>🐶 My Virtual Pet</h1>
-        <div id="pet">🐶</div>
+        <div id="pet" class="pet">🐶</div>
         <h2 id="pet-name">Buddy</h2>
         <div class="stats">
-            <p>😊 Happiness</p>
-            <div class="bar">
-                <div id="happiness-bar"></div>
+            <div class="stat">
+                <div class="stat-header">
+                    <span>😊 Happiness</span>
+                    <span id="happiness">50%</span>
+                </div>
+                <div class="bar">
+                    <div id="happiness-bar"></div>
+                </div>
             </div>
-            <p id="happiness">50%</p>
-            <p>⚡ Energy</p>
-            <div class="bar">
-                <div id="energy-bar"></div>
+            <div class="stat">
+                <div class="stat-header">
+                    <span>⚡ Energy</span>
+                    <span id="energy">50%</span>
+                </div>
+                <div class="bar">
+                    <div id="energy-bar"></div>
+                </div>
             </div>
-            <p id="energy">50%</p>
         </div>
         <div class="buttons">
-            <button onclick="feedPet()">🍔 Feed</button>
-            <button onclick="playWithPet()">🎮 Play</button>
-            <button onclick="sleepPet()">😴 Sleep</button>
+            <button id="feed-btn" onclick="feedPet()">🍔 Feed</button>
+            <button id="play-btn" onclick="playWithPet()">🎮 Play</button>
+            <button id="sleep-btn" onclick="sleepPet()">😴 Sleep</button>
+            <button id="reset-btn" onclick="resetPet()">🔄 Reset</button>
         </div>
         <p id="message">Buddy is waiting for you!</p>
     </div>

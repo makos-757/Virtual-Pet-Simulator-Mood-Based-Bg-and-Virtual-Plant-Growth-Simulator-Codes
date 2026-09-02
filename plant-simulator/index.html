@@ -9,15 +9,16 @@
 <body>
     <div class="container">
         <h1>🌱 Plant Growth Simulator</h1>
-        <div id="plant">🌱</div>
+        <div id="plant" class="plant">🌱</div>
         <h2 id="stage">Seedling</h2>
         <div class="progress-container">
             <div id="progress-bar"></div>
         </div>
         <p id="percentage">0% Growth</p>
         <div class="buttons">
-            <button onclick="waterPlant()">💧 Water</button>
-            <button onclick="giveSunlight()">☀️ Sunlight</button>
+            <button id="water-btn" onclick="waterPlant()">💧 Water</button>
+            <button id="sun-btn" onclick="giveSunlight()">☀️ Sunlight</button>
+            <button id="reset-btn" onclick="resetPlant()">🔄 Reset</button>
         </div>
         <p id="message">Take care of your plant!</p>
     </div>

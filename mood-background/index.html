@@ -8,14 +8,14 @@
 </head>
 <body>
     <div class="container">
-        <h1 id="emoji">😊</h1>
-        <h2 id="title">How are you feeling today?</h2>
+        <div class="emoji" id="emoji">😊</div>
+        <h1 id="title">How are you feeling today?</h1>
         <p id="message">Choose your mood below!</p>
         <div class="buttons">
-            <button onclick="changeMood('happy')">😊 Happy</button>
-            <button onclick="changeMood('sad')">😢 Sad</button>
-            <button onclick="changeMood('tired')">😴 Tired</button>
-            <button onclick="changeMood('angry')">😡 Angry</button>
+            <button data-mood="happy" class="mood-btn active">😊 Happy</button>
+            <button data-mood="sad" class="mood-btn">😢 Sad</button>
+            <button data-mood="tired" class="mood-btn">😴 Tired</button>
+            <button data-mood="angry" class="mood-btn">😡 Angry</button>
         </div>
     </div>
     <script src="script.js"></script>

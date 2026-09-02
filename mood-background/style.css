@@ -5,55 +5,117 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.5s;
+    transition: background-color 0.6s ease, color 0.4s ease;
     background-color: #f5f5f5;
+    color: #333;
 }
 
 .container {
     text-align: center;
-    padding: 40px;
-    background: white;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 50px 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    width: 92%;
+    max-width: 520px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
 }
 
-#emoji {
-    font-size: 80px;
+.emoji {
+    font-size: 100px;
     margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+    display: inline-block;
 }
 
-h2 {
-    margin-bottom: 15px;
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+h1 {
+    margin-bottom: 12px;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
 
 p {
     margin-bottom: 30px;
-    color: gray;
+    color: #666;
+    font-size: 1.05rem;
 }
 
 .buttons {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
 }
 
-button {
-    border: none;
-    padding: 12px 20px;
-    border-radius: 10px;
+.mood-btn {
+    border: 2px solid transparent;
+    padding: 14px 22px;
+    border-radius: 14px;
     cursor: pointer;
     font-size: 16px;
-    transition: 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    background: #f0f0f0;
+    color: #333;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-button:hover {
+.mood-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mood-btn.active {
     transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.mood-btn[data-mood="happy"] {
+    background: #fff3e0;
+    border-color: #ffb74d;
+}
+.mood-btn[data-mood="happy"]:hover,
+.mood-btn[data-mood="happy"].active {
+    background: #ffb74d;
+    color: #fff;
+}
+
+.mood-btn[data-mood="sad"] {
+    background: #e3f2fd;
+    border-color: #90caf9;
+}
+.mood-btn[data-mood="sad"]:hover,
+.mood-btn[data-mood="sad"].active {
+    background: #90caf9;
+    color: #fff;
+}
+
+.mood-btn[data-mood="tired"] {
+    background: #f3e5f5;
+    border-color: #ce93d8;
+}
+.mood-btn[data-mood="tired"]:hover,
+.mood-btn[data-mood="tired"].active {
+    background: #ce93d8;
+    color: #fff;
+}
+
+.mood-btn[data-mood="angry"] {
+    background: #ffebee;
+    border-color: #ef9a9a;
+}
+.mood-btn[data-mood="angry"]:hover,
+.mood-btn[data-mood="angry"].active {
+    background: #ef9a9a;
+    color: #fff;
 }

@@ -1,33 +1,44 @@
+const moods = {
+    happy: {
+        bg: '#FFF8E1',
+        emoji: '😊',
+        title: "You're Feeling Happy!",
+        message: 'Keep smiling and enjoy your day!'
+    },
+    sad: {
+        bg: '#E3F2FD',
+        emoji: '😢',
+        title: "You're Feeling Sad",
+        message: "It's okay. Better days are coming!"
+    },
+    tired: {
+        bg: '#F3E5F5',
+        emoji: '😴',
+        title: "You're Feeling Tired",
+        message: 'Take some rest. You deserve it!'
+    },
+    angry: {
+        bg: '#FFEBEE',
+        emoji: '😡',
+        title: "You're Feeling Angry",
+        message: 'Take a deep breath and stay calm.'
+    }
+};
+
 function changeMood(mood) {
-    const emoji = document.getElementById("emoji");
-    const title = document.getElementById("title");
-    const message = document.getElementById("message");
+    const data = moods[mood];
+    if (!data) return;
 
-    if (mood === "happy") {
-        document.body.style.backgroundColor = "#FFD54F";
-        emoji.textContent = "😊";
-        title.textContent = "You're Feeling Happy!";
-        message.textContent = "Keep smiling and enjoy your day!";
-    }
+    document.body.style.backgroundColor = data.bg;
+    document.getElementById('emoji').textContent = data.emoji;
+    document.getElementById('title').textContent = data.title;
+    document.getElementById('message').textContent = data.message;
 
-    if (mood === "sad") {
-        document.body.style.backgroundColor = "#90CAF9";
-        emoji.textContent = "😢";
-        title.textContent = "You're Feeling Sad";
-        message.textContent = "It's okay. Better days are coming!";
-    }
-
-    if (mood === "tired") {
-        document.body.style.backgroundColor = "#B39DDB";
-        emoji.textContent = "😴";
-        title.textContent = "You're Feeling Tired";
-        message.textContent = "Take some rest. You deserve it!";
-    }
-
-    if (mood === "angry") {
-        document.body.style.backgroundColor = "#EF9A9A";
-        emoji.textContent = "😡";
-        title.textContent = "You're Feeling Angry";
-        message.textContent = "Take a deep breath and stay calm.";
-    }
+    document.querySelectorAll('.mood-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mood === mood);
+    });
 }
+
+document.querySelectorAll('.mood-btn').forEach(btn => {
+    btn.addEventListener('click', () => changeMood(btn.dataset.mood));
+});
