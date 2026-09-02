@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 Mini Life App - Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="header-content">
+                <h1>🌟 Mini Life App</h1>
+                <p class="greeting" id="greeting">Good morning!</p>
+            </div>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme">🌙</button>
+        </header>
+
+        <main class="main">
+            <section class="stats-overview">
+                <h2>📊 My Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-icon">🎭</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="total-moods">0</span>
+                            <span class="stat-label">Moods Logged</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🌱</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="plants-grown">0</span>
+                            <span class="stat-label">Plants Grown</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🐶</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="pet-interactions">0</span>
+                            <span class="stat-label">Pet Interactions</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-icon">🔥</span>
+                        <div class="stat-info">
+                            <span class="stat-value" id="current-streak">0</span>
+                            <span class="stat-label">Day Streak</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="apps-section">
+                <h2>Choose Your Activity</h2>
+                <div class="apps-grid">
+                    <a href="mood-background/index.html" class="app-card mood-card">
+                        <div class="app-icon">🎭</div>
+                        <h3>Mood Tracker</h3>
+                        <p>Track your daily mood and discover patterns</p>
+                        <div class="app-preview">
+                            <span class="preview-emoji" id="mood-preview-emoji">😊</span>
+                            <span class="preview-text" id="mood-preview-text">Log your mood today</span>
+                        </div>
+                    </a>
+
+                    <a href="plant-simulator/index.html" class="app-card plant-card">
+                        <div class="app-icon">🌱</div>
+                        <h3>Plant Garden</h3>
+                        <p>Nurture your virtual plants and watch them grow</p>
+                        <div class="app-preview">
+                            <span class="preview-emoji" id="plant-preview-emoji">🌱</span>
+                            <span class="preview-text" id="plant-preview-text">Your plant needs care</span>
+                        </div>
+                    </a>
+
+                    <a href="virtual-pet/index.html" class="app-card pet-card">
+                        <div class="app-icon">🐶</div>
+                        <h3>Virtual Pet</h3>
+                        <p>Take care of your adorable pet companion</p>
+                        <div class="app-preview">
+                            <span class="preview-emoji" id="pet-preview-emoji">🐶</span>
+                            <span class="preview-text" id="pet-preview-text">Buddy is waiting</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="achievements-section">
+                <h2>🏆 Achievements</h2>
+                <div class="achievements-grid" id="achievements-grid">
+                    <div class="achievement locked" data-id="first-mood">
+                        <span class="achievement-icon">🎭</span>
+                        <span class="achievement-name">First Mood</span>
+                        <span class="achievement-desc">Log your first mood</span>
+                    </div>
+                    <div class="achievement locked" data-id="week-streak">
+                        <span class="achievement-icon">🔥</span>
+                        <span class="achievement-name">Week Warrior</span>
+                        <span class="achievement-desc">7 day mood streak</span>
+                    </div>
+                    <div class="achievement locked" data-id="first-plant">
+                        <span class="achievement-icon">🌱</span>
+                        <span class="achievement-name">Green Thumb</span>
+                        <span class="achievement-desc">Grow your first plant</span>
+                    </div>
+                    <div class="achievement locked" data-id="plant-master">
+                        <span class="achievement-icon">🌳</span>
+                        <span class="achievement-name">Plant Master</span>
+                        <span class="achievement-desc">Grow 5 plants</span>
+                    </div>
+                    <div class="achievement locked" data-id="pet-friend">
+                        <span class="achievement-icon">🐶</span>
+                        <span class="achievement-name">Pet Friend</span>
+                        <span class="achievement-desc">Interact with pet 10 times</span>
+                    </div>
+                    <div class="achievement locked" data-id="perfect-pet">
+                        <span class="achievement-icon">🥰</span>
+                        <span class="achievement-name">Perfect Care</span>
+                        <span class="achievement-desc">Keep pet stats above 80%</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="activity-section">
+                <h2>📅 Recent Activity</h2>
+                <div class="activity-list" id="activity-list">
+                    <p class="empty-state">No activity yet. Start using the apps!</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Made by <a href="https://makostech.me" target="_blank" rel="noopener">Makos Tech</a></p>
+            <p>Contact: <a href="https://wa.me/254727240573" target="_blank" rel="noopener">+254 727 240 573</a></p>
+        </footer>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

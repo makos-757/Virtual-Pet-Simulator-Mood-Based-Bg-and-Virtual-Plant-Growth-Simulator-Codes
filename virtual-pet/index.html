@@ -3,74 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Pet Simulator</title>
+    <title>Virtual Pet</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🐶 My Virtual Pet</h1>
-        <div id="pet" class="pet">🐶</div>
-        <h2 id="pet-name">Buddy</h2>
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-header">
-                    <span>😊 Happiness</span>
-                    <span id="happiness">50%</span>
-                </div>
-                <div class="bar">
-                    <div id="happiness-bar"></div>
-                </div>
+    <div class="app">
+        <header class="header">
+            <div class="header-content">
+                <h1>🐶 Virtual Pet</h1>
+                <p class="greeting" id="greeting">Good morning!</p>
             </div>
-            <div class="stat">
-                <div class="stat-header">
-                    <span>⚡ Energy</span>
-                    <span id="energy">50%</span>
+            <a href="../index.html" class="back-btn">← Back</a>
+        </header>
+
+        <main class="main">
+            <section class="pet-select" id="pet-select">
+                <h3>Choose Your Pet</h3>
+                <div class="pet-options">
+                    <button class="pet-option" data-pet="dog">
+                        <span class="pet-emoji">🐶</span>
+                        <span class="pet-name">Dog</span>
+                    </button>
+                    <button class="pet-option" data-pet="cat">
+                        <span class="pet-emoji">🐱</span>
+                        <span class="pet-name">Cat</span>
+                    </button>
+                    <button class="pet-option" data-pet="rabbit">
+                        <span class="pet-emoji">🐰</span>
+                        <span class="pet-name">Rabbit</span>
+                    </button>
+                    <button class="pet-option" data-pet="bird">
+                        <span class="pet-emoji">🐦</span>
+                        <span class="pet-name">Bird</span>
+                    </button>
                 </div>
-                <div class="bar">
-                    <div id="energy-bar"></div>
+            </section>
+
+            <section class="pet-info">
+                <div class="pet-display">
+                    <div id="pet" class="pet">🐶</div>
+                    <h2 id="pet-name">Choose a pet to start</h2>
+                    <p id="pet-personality" class="personality"></p>
                 </div>
-            </div>
-            <div class="stat">
-                <div class="stat-header">
-                    <span>🍖 Hunger</span>
-                    <span id="hunger">50%</span>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-header">
+                            <span>😊 Happiness</span>
+                            <span id="happiness">50%</span>
+                        </div>
+                        <div class="bar">
+                            <div id="happiness-bar"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-header">
+                            <span>⚡ Energy</span>
+                            <span id="energy">50%</span>
+                        </div>
+                        <div class="bar">
+                            <div id="energy-bar"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-header">
+                            <span>🍖 Hunger</span>
+                            <span id="hunger">50%</span>
+                        </div>
+                        <div class="bar">
+                            <div id="hunger-bar"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-header">
+                            <span>💧 Thirst</span>
+                            <span id="thirst">50%</span>
+                        </div>
+                        <div class="bar">
+                            <div id="thirst-bar"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-header">
+                            <span>❤️ Health</span>
+                            <span id="health">100%</span>
+                        </div>
+                        <div class="bar">
+                            <div id="health-bar"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bar">
-                    <div id="hunger-bar"></div>
+            </section>
+
+            <section class="actions">
+                <div class="buttons">
+                    <button id="feed-btn" onclick="feedPet()">🍔 Feed</button>
+                    <button id="play-btn" onclick="playWithPet()">🎮 Play</button>
+                    <button id="sleep-btn" onclick="sleepPet()">😴 Sleep</button>
+                    <button id="water-btn" onclick="giveWater()">💧 Water</button>
+                    <button id="game-btn" onclick="playMiniGame()">🎯 Game</button>
+                    <button id="reset-btn" onclick="resetPet()">🔄 Reset</button>
                 </div>
-            </div>
-            <div class="stat">
-                <div class="stat-header">
-                    <span>💧 Thirst</span>
-                    <span id="thirst">50%</span>
+                <p id="message">Select a pet to begin!</p>
+            </section>
+
+            <section class="game-section" id="game-section" style="display: none;">
+                <h3>🎯 Reaction Game</h3>
+                <p>Click the button when it turns green!</p>
+                <div class="game-area">
+                    <button id="game-start-btn" class="game-btn">Start Game</button>
+                    <div id="game-status" class="game-status"></div>
                 </div>
-                <div class="bar">
-                    <div id="thirst-bar"></div>
-                </div>
-            </div>
-            <div class="stat">
-                <div class="stat-header">
-                    <span>❤️ Health</span>
-                    <span id="health">100%</span>
-                </div>
-                <div class="bar">
-                    <div id="health-bar"></div>
-                </div>
-            </div>
-        </div>
-        <div class="buttons">
-            <button id="feed-btn" onclick="feedPet()">🍔 Feed</button>
-            <button id="play-btn" onclick="playWithPet()">🎮 Play</button>
-            <button id="sleep-btn" onclick="sleepPet()">😴 Sleep</button>
-            <button id="water-btn" onclick="giveWater()">💧 Water</button>
-            <button id="reset-btn" onclick="resetPet()">🔄 Reset</button>
-        </div>
-        <p id="message">Buddy is waiting for you!</p>
+            </section>
+        </main>
+
+        <footer class="watermark">
+            <p>Made by <a href="https://makostech.me" target="_blank" rel="noopener">Makos Tech</a></p>
+            <p>Contact: <a href="https://wa.me/254727240573" target="_blank" rel="noopener">+254 727 240 573</a></p>
+        </footer>
     </div>
-    <footer class="watermark">
-        <p>Made by <a href="https://makostech.me" target="_blank" rel="noopener">Makos Tech</a></p>
-        <p>Contact: <a href="https://wa.me/254727240573" target="_blank" rel="noopener">+254 727 240 573</a></p>
-    </footer>
+
+    <div id="toast-container" class="toast-container"></div>
+    <script src="../js/shared.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

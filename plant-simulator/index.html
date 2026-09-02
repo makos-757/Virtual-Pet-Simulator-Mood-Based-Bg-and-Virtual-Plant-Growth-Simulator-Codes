@@ -3,58 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plant Growth Simulator</title>
+    <title>Plant Garden</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🌱 Plant Growth Simulator</h1>
-        <div id="plant" class="plant">🌱</div>
-        <h2 id="stage">Seedling</h2>
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-header">
-                    <span>💚 Health</span>
-                    <span id="health">100%</span>
-                </div>
-                <div class="bar">
-                    <div id="health-bar"></div>
-                </div>
+    <div class="app">
+        <header class="header">
+            <div class="header-content">
+                <h1>🌱 Plant Garden</h1>
+                <p class="greeting">Nurture your plants</p>
             </div>
-            <div class="stat">
-                <div class="stat-header">
-                    <span>💧 Moisture</span>
-                    <span id="moisture">50%</span>
+            <a href="../index.html" class="back-btn">← Back</a>
+        </header>
+
+        <main class="main">
+            <section class="plant-select" id="plant-select">
+                <h3>Choose Your Plant</h3>
+                <div class="plant-options">
+                    <button class="plant-option" data-plant="cactus">🌵 Cactus</button>
+                    <button class="plant-option" data-plant="rose">🌹 Rose</button>
+                    <button class="plant-option" data-plant="fern">🌿 Fern</button>
+                    <button class="plant-option" data-plant="sunflower">🌻 Sunflower</button>
                 </div>
-                <div class="bar">
-                    <div id="moisture-bar"></div>
+            </section>
+
+            <section class="weather-section">
+                <h3>🌤️ Weather</h3>
+                <div class="weather-display" id="weather-display">
+                    <span class="weather-icon" id="weather-icon">☀️</span>
+                    <span class="weather-text" id="weather-text">Sunny</span>
                 </div>
-            </div>
-            <div class="stat">
-                <div class="stat-header">
-                    <span>☀️ Sunlight</span>
-                    <span id="sunlight">50%</span>
+            </section>
+
+            <section class="plant-status">
+                <div class="plant-display">
+                    <div id="plant" class="plant">🌱</div>
+                    <h2 id="stage">Choose a plant to start</h2>
                 </div>
-                <div class="bar">
-                    <div id="sunlight-bar"></div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-header">
+                            <span>❤️ Health</span>
+                            <span id="health">100%</span>
+                        </div>
+                        <div class="bar">
+                            <div id="health-bar"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-header">
+                            <span>💧 Moisture</span>
+                            <span id="moisture">50%</span>
+                        </div>
+                        <div class="bar">
+                            <div id="moisture-bar"></div>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-header">
+                            <span>☀️ Sunlight</span>
+                            <span id="sunlight">50%</span>
+                        </div>
+                        <div class="bar">
+                            <div id="sunlight-bar"></div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="progress-container">
-            <div id="progress-bar"></div>
-        </div>
-        <p id="percentage">0% Growth</p>
-        <div class="buttons">
-            <button id="water-btn" onclick="waterPlant()">💧 Water</button>
-            <button id="sun-btn" onclick="giveSunlight()">☀️ Sunlight</button>
-            <button id="reset-btn" onclick="resetPlant()">🔄 Reset</button>
-        </div>
-        <p id="message">Take care of your plant!</p>
+                <div class="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <p id="percentage">0% Growth</p>
+            </section>
+
+            <section class="actions">
+                <div class="buttons">
+                    <button id="water-btn" onclick="waterPlant()">💧 Water</button>
+                    <button id="sun-btn" onclick="giveSunlight()">☀️ Sunlight</button>
+                    <button id="reset-btn" onclick="resetPlant()">🔄 Reset</button>
+                </div>
+                <p id="message">Select a plant to begin!</p>
+            </section>
+
+            <section class="events-section" id="events-section" style="display: none;">
+                <h3>⚠️ Events</h3>
+                <div class="event-card" id="event-card"></div>
+            </section>
+        </main>
+
+        <footer class="watermark">
+            <p>Made by <a href="https://makostech.me" target="_blank" rel="noopener">Makos Tech</a></p>
+            <p>Contact: <a href="https://wa.me/254727240573" target="_blank" rel="noopener">+254 727 240 573</a></p>
+        </footer>
     </div>
-    <footer class="watermark">
-        <p>Made by <a href="https://makostech.me" target="_blank" rel="noopener">Makos Tech</a></p>
-        <p>Contact: <a href="https://wa.me/254727240573" target="_blank" rel="noopener">+254 727 240 573</a></p>
-    </footer>
+
+    <div id="toast-container" class="toast-container"></div>
+    <script src="../js/shared.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
