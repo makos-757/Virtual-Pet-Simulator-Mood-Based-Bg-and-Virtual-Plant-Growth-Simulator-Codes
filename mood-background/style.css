@@ -119,3 +119,21 @@ p {
     background: #ef9a9a;
     color: #fff;
 }
+
+.watermark {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    font-size: 0.85rem;
+    color: #777;
+}
+
+.watermark a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.watermark a:hover {
+    text-decoration: underline;
+}
