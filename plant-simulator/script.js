@@ -1,5 +1,4 @@
 const PLANT_KEY = 'plantState';
-const ACHIEVEMENTS_KEY = 'miniLifeAchievements';
 
 const plantSpecies = {
     cactus: {
@@ -190,9 +189,6 @@ function updatePlant() {
         waterBtn.disabled = true;
         sunBtn.disabled = true;
         messageEl.textContent = '🎉 Your plant is fully grown!';
-        const stats = loadState();
-        stats.stats.plantsGrown = Math.max(stats.stats.plantsGrown, 1);
-        saveState(stats);
     } else {
         progressBar.classList.remove('mature');
         waterBtn.disabled = false;
@@ -247,7 +243,6 @@ function waterPlant() {
     plant.lastWatered = Date.now();
     savePlant();
     updatePlant();
-    addActivity('plant', `Watered ${species.name}`, '💧');
 }
 
 function giveSunlight() {
@@ -276,7 +271,6 @@ function giveSunlight() {
     plant.lastSunlight = Date.now();
     savePlant();
     updatePlant();
-    addActivity('plant', `Gave sunlight to ${species.name}`, '☀️');
 }
 
 function getGrowthBonus() {
@@ -355,12 +349,18 @@ function updateUI() {
     }
 }
 
-function checkAchievements() {
-    const achievements = loadAchievements();
+function showToast(message) {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    container.appendChild(toast);
 
-    if (plant && plant.growth >= 100 && !achievements.includes('first-plant')) {
-        unlockAchievement('first-plant');
-    }
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
 }
 
 function initTheme() {
@@ -383,7 +383,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     updatePlant();
-    checkAchievements();
 
     setInterval(() => {
         if (!plant || !plant.species || plant.health <= 0 || plant.growth >= 100) return;

@@ -1,5 +1,4 @@
 const PET_KEY = 'petState';
-const ACHIEVEMENTS_KEY = 'miniLifeAchievements';
 
 const petTypes = {
     dog: {
@@ -98,7 +97,6 @@ function selectPet(type) {
 
     document.getElementById('pet-select').querySelector('h3').textContent = `Pet: ${petType.name}`;
     updatePet();
-    addActivity('pet', `Adopted ${petType.name}`, petType.emoji);
 }
 
 function getPetEmoji() {
@@ -198,8 +196,6 @@ function feedPet() {
     animatePet();
     savePet();
     updatePet();
-    addActivity('pet', `Fed ${pet.name}`, '🍔');
-    updateDashboardStats();
 }
 
 function playWithPet() {
@@ -222,8 +218,6 @@ function playWithPet() {
     animatePet();
     savePet();
     updatePet();
-    addActivity('pet', `Played with ${pet.name}`, '🎮');
-    updateDashboardStats();
 }
 
 function sleepPet() {
@@ -260,8 +254,6 @@ function giveWater() {
     animatePet();
     savePet();
     updatePet();
-    addActivity('pet', `Gave water to ${pet.name}`, '💧');
-    updateDashboardStats();
 }
 
 function animatePet() {
@@ -335,7 +327,6 @@ function playMiniGame() {
             pet.interactions++;
             savePet();
             updatePet();
-            updateDashboardStats();
         } else if (gameBtn.textContent === 'Wait for green...') {
             gameStatus.textContent = 'Too early! Wait for green.';
             gameBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)';
@@ -349,21 +340,18 @@ function playMiniGame() {
     };
 }
 
-function updateDashboardStats() {
-    const stats = loadState();
-    stats.stats.petInteractions = Math.max(stats.stats.petInteractions, pet ? pet.interactions : 0);
-    saveState(stats);
-}
+function showToast(message) {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    container.appendChild(toast);
 
-function checkAchievements() {
-    const achievements = loadAchievements();
-
-    if (pet && pet.interactions >= 10 && !achievements.includes('pet-friend')) {
-        unlockAchievement('pet-friend');
-    }
-    if (pet && pet.happiness > 80 && pet.energy > 80 && !achievements.includes('perfect-pet')) {
-        unlockAchievement('perfect-pet');
-    }
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
 }
 
 function initTheme() {
@@ -401,7 +389,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     updatePet();
-    checkAchievements();
 
     setInterval(() => {
         if (!pet || !pet.type || pet.health <= 0 || isSleeping) return;

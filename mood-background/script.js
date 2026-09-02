@@ -125,12 +125,6 @@ function logMood(mood) {
     updateStreak(data);
     saveMoodData(data);
 
-    const stats = loadState();
-    stats.stats.totalMoods = data.history.length;
-    stats.stats.currentStreak = data.streak;
-    stats.lastMood = mood;
-    saveState(stats);
-
     updateUI();
     renderHistory();
     renderCalendar();
@@ -145,18 +139,7 @@ function logMood(mood) {
         btn.classList.toggle('active', btn.dataset.mood === mood);
     });
 
-    addActivity('mood', `Logged mood: ${mood}`, config.emoji);
-    checkAchievements();
     showToast(`Mood logged: ${mood}! ${config.emoji}`);
-}
-
-function updateDashboardStats() {
-    const data = loadMoodData();
-    const stats = loadState();
-
-    stats.stats.totalMoods = data.history.length;
-    stats.stats.currentStreak = data.streak;
-    saveState(stats);
 }
 
 function updateUI() {
@@ -217,23 +200,18 @@ function renderCalendar() {
     calendar.innerHTML = html;
 }
 
-function checkAchievements() {
-    const data = loadMoodData();
-    const achievements = loadAchievements();
+function showToast(message) {
+    const container = document.getElementById('toast-container');
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    container.appendChild(toast);
 
-    if (data.history.length >= 1 && !achievements.includes('first-mood')) {
-        unlockAchievement('first-mood');
-    }
-    if (data.streak >= 7 && !achievements.includes('week-streak')) {
-        unlockAchievement('week-streak');
-    }
-}
-
-function initTheme() {
-    const saved = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = saved || (prefersDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', theme);
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
 }
 
 document.querySelectorAll('.mood-btn').forEach(btn => {
@@ -249,8 +227,6 @@ document.getElementById('reset-streak').addEventListener('click', () => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-
     const data = loadMoodData();
     if (data.history.length > 0) {
         const lastMood = data.history[0].mood;

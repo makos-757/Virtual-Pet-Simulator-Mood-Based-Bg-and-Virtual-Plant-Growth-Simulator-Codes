@@ -14,15 +14,20 @@ The user selects a mood and the background changes with a matching emoji and mes
 - 😢 Sad → Calm background + encouraging message
 - 😴 Tired → Relaxing background + rest message
 - 😡 Angry → Calm message + peaceful background
+- 😌 Calm, 😰 Anxious, 🤩 Excited, 🙏 Grateful also supported
 
-### Improvements
-- Active mood button highlighting
-- Smooth background transitions
-- Floating emoji animation
-- Better mobile responsiveness
-- Semantic HTML structure
+### Features
+- **8 mood types** with personalized suggestions
+- **Streak tracking** with longest streak
+- **7-day calendar view** showing mood history
+- **Mood history** with timestamps
+- **Time-aware suggestions** based on time of day
+- Prevents duplicate daily entries
+- Dark/light theme support
+- Toast notifications
+- localStorage persistence
 
-**Skills:** Event listeners, CSS transitions, DOM manipulation.
+**Skills:** Event listeners, CSS transitions, DOM manipulation, localStorage.
 
 ### Files
 - `index.html`
@@ -43,16 +48,22 @@ The user takes care of a virtual plant by watering it and giving it sunlight to 
 - 📊 Track growth percentage
 - 🔄 Reset plant to start over
 
-### Improvements
-- Reset button to restart growth
-- Buttons disable when plant is fully grown
-- Growth animation on plant emoji
-- Progress bar color changes as plant matures
-- Better feedback messages
+### Features
+- **4 plant species**: Cactus, Rose, Fern, Sunflower
+- Each with unique care requirements (moisture, sunlight)
+- **Weather system**: Sunny, Cloudy, Rainy, Heatwave
+- **Random events**: Pests, disease, rain, pollination
+- Overwatering and too much sun damage the plant
+- Growth bonus/penalty based on conditions
+- Plant can die if health reaches 0
+- Stats: Health, Moisture, Sunlight, Growth
+- Dark/light theme support
+- Toast notifications
+- localStorage persistence
 
 **Growth stages:** Seed → Sprout → Small Plant → Mature Plant 🌳
 
-**Skills:** JavaScript conditions, progress bars, functions, CSS animations.
+**Skills:** JavaScript conditions, progress bars, functions, CSS animations, localStorage.
 
 ### Files
 - `index.html`
@@ -65,25 +76,33 @@ The user takes care of a virtual plant by watering it and giving it sunlight to 
 
 **Folder:** `virtual-pet/`
 
-A digital pet named Buddy that the user can care for.
+A digital pet that the user can care for.
 
 - 🍔 Feed the pet
 - 🎮 Play with the pet
 - 😴 Let it sleep
-- 🔄 Reset pet stats
-- 😊 Track happiness and energy
-- 💬 Display different messages based on the pet's condition
-- ⏳ Stats slowly decrease over time
+- 💧 Give water
+- 🎯 Play mini-game
+- 🔄 Reset pet
+- 📊 Track happiness, energy, hunger, thirst, health
+- 🐕 Choose from Dog, Cat, Rabbit, Bird
 
-### Improvements
-- Stats decay over time (happiness and energy drop gradually)
+### Features
+- **4 pet types**: Dog, Cat, Rabbit, Bird
+- **Personality system**: Each pet gets a random personality
+- **5 stats**: Happiness, Energy, Hunger, Thirst, Health
+- Overfeeding causes sickness, playing when tired causes injury
+- Sleep is a timed action
+- Stats decay over time
 - Pet emoji changes based on condition
-- Buttons disable when actions aren't available
-- Bounce animation on interactions
-- Reset functionality
-- Better visual feedback for low stats
+- **Mini-game**: Reaction time game to earn happiness points
+- Age system (pet ages in real-time)
+- Pet dies if health reaches 0
+- Dark/light theme support
+- Toast notifications
+- localStorage persistence
 
-**Skills:** Variables, functions, buttons, conditions, DOM manipulation, timers.
+**Skills:** Variables, functions, buttons, conditions, DOM manipulation, timers, localStorage.
 
 ### Files
 - `index.html`
