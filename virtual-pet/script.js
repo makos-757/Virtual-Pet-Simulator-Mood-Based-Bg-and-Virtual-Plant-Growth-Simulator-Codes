@@ -389,6 +389,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     updatePet();
+    checkAchievements();
 
     setInterval(() => {
         if (!pet || !pet.type || pet.health <= 0 || isSleeping) return;

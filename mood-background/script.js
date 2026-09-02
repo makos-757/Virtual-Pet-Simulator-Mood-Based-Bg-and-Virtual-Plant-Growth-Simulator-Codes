@@ -227,6 +227,8 @@ document.getElementById('reset-streak').addEventListener('click', () => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+
     const data = loadMoodData();
     if (data.history.length > 0) {
         const lastMood = data.history[0].mood;
@@ -235,6 +237,7 @@ window.addEventListener('DOMContentLoaded', () => {
         document.getElementById('title').textContent = config.title;
         document.getElementById('message').textContent = config.message;
         document.getElementById('suggestion-card').innerHTML = `<p>${config.suggestion}</p>`;
+        document.body.style.backgroundColor = config.bg;
         document.querySelectorAll('.mood-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.mood === lastMood);
         });

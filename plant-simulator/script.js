@@ -383,6 +383,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     updatePlant();
+    checkAchievements();
 
     setInterval(() => {
         if (!plant || !plant.species || plant.health <= 0 || plant.growth >= 100) return;
