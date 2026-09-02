@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Growth Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🌱 Plant Growth Simulator</h1>
+        <div id="plant">🌱</div>
+        <h2 id="stage">Seedling</h2>
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <p id="percentage">0% Growth</p>
+        <div class="buttons">
+            <button onclick="waterPlant()">💧 Water</button>
+            <button onclick="giveSunlight()">☀️ Sunlight</button>
+        </div>
+        <p id="message">Take care of your plant!</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
